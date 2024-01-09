@@ -1,0 +1,29 @@
+<div class="sticky top-0 bg-white">
+    <nav
+        class="flex sm:flex-row justify-between items-center text-sm  md:text-base text-gray-700 font-semibold flex-col">
+        <img src="assets/images/icons/userManagerLogo.ico" class="w-10 shadow-lg md:w-20 md:mx-10 my-4 " />
+        <ul class="flex list-none flex-col sm:flex-row">
+            <ng-container *ngFor="let menu of menu_list">
+                <li class="dropdown phone mx-2 px-2 sm:px-6 cursor-pointer hover:bg-gray-200 hover:rounded-md hover:shadow-md "
+                    routerLinkActive=" bg-red-300 rounded-md shadow-md">
+                    <span [routerLink]="menu.link">{{menu.title}}</span>
+                    <div *ngIf="menu.child" class="dropdown-content m-0 p-0 w-full rounded-md">
+                        <ng-container *ngFor="let submenu of menu.child">
+                            <p class="hover:bg-gray-200 hover:rounded-md hover:shadow-md px-2 my-1 "
+                                [routerLink]="submenu.link" routerLinkActive=" bg-red-300 rounded-md shadow-md">
+                                {{submenu.title}}
+                            </p>
+                        </ng-container>
+                    </div>
+                </li>
+            </ng-container>
+            <li class="dropdown phone mx-2 px-1 sm:px-3 cursor-pointer hover:bg-gray-200 hover:rounded-md hover:shadow-md ">
+                <span href="#" class="w-full h-full" (click)="changeLang()">
+                    <fa-icon [icon]="faLanguage" class="mr-1"></fa-icon>
+                    {{currentLang}}
+                </span>
+            </li>
+           
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,21 @@
+<div *ngIf="signFormGroup" class="pt-10 bg-opacity-100">
+    <form [formGroup]="signFormGroup" class=" mx-2  sm:mx-40 lg:mx-80 md:py-4 bg-gray-200 rounded-lg">
+        <div class="flex flex-col items-center py-4">
+            <h1 class="text-xl font-bold">Authentication</h1>
+            <input placeholder="username" class="mt-4 p-2 rounded-md md:w-1/2" formControlName="username"
+            [ngClass]="error?errorClassBorder:''">
+            <input type="password" placeholder="password" 
+            class="my-4 p-2 rounded-md  md:w-1/2"
+            [ngClass]="error?errorClassBorder:''" 
+            formControlName="password"
+            >
+            <div>
+                <input type="button" value="Submit"
+                    class=" hover:opacity-70 cursor-pointer mx-2 bg-gradient-to-b from-blue-600 to-blue-200 p-2 w-24 md:w-32 rounded-md md:rounded"
+                    (click)="authenticate()">
+                <input type="reset" value="Reset"
+                    class="hover:opacity-70 cursor-pointer mx-2 bg-gradient-to-b from-blue-600 to-blue-200 p-2 w-24 md:w-32 rounded-md md:rounded">
+            </div>
+        </div>
+    </form>
+</div>
